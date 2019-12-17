@@ -1,1 +1,74 @@
-theme: jekyll-theme-slate
+# Site settings
+title: rainmin
+subtitle: [blog]
+keywords: rainmin
+description: 太阳~太阳~太阳
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://rainmin.github.io/" # 你的域名
+page_no_title: "rainmin's blog" # 文章无标题时默认显示内容
+beian: # "备案号"
+author: rainmin
+email: rainminchan@gmail.com
+
+# Build settings
+permalink: /:year/:month/:day/:title/
+exclude: ["README.md", "changelog.md", "server", "tools", "Pipfile"]
+plugins:
+  - jekyll-paginate
+  - jemoji
+
+
+# always get github's error email saying redcarpet is not supported,
+# so change it to kramdown.
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+
+
+# Pageinate settings
+paginate: 8 # 分页大小
+paginate_path: "page/:num/"
+
+# Search settings
+baidu_search: true
+google_search: # true
+
+# Menu settings
+menu:
+  - page: 首页
+    directory: .
+    icon: icon-home
+  - page: 归档
+    directory: archives/
+    icon: icon-archive
+  - page: 标签
+    directory: tags/
+    icon: icon-tags
+  - page: 留言
+    directory: guestbook/
+    icon: icon-guestbook
+  - page: 关于
+    directory: about/
+    icon: icon-about
+#  - page: 订阅
+#    directory: feed.xml
+#    icon: icon-rss
+
+# Link settings
+links: # 友情链接
+
+  - title: ccslience's blog
+    url: http://ccslience.oukohou.wang/
+  - title: oukohou's github
+    url: https://github.com/oukohou
+#  - title:
+#    url: http://jekyllcn.com/
+  - title: Jekyll blog system
+    url: http://jekyllcn.com/
+
+# Code hub settings
+codehub: # 代码仓库
+  - title: Github
+    url: https://github.com/rainmin
+
