@@ -1,8 +1,8 @@
 # Site settings
 title: rainmin
-subtitle: [太阳~太阳~太阳~]
+subtitle: [Just a Blog]
 keywords: rainmin
-description: 太阳~太阳~太阳~
+description: Just a Blog
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://rainmin.github.io/" # 你的域名
 page_no_title: "rainmin's blog" # 文章无标题时默认显示内容
