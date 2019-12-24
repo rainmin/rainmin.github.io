@@ -13,7 +13,7 @@ sudo apt-get install openjdk-8-jdk
 
 - 配置环境变量  
 vim /etc/profile，在文件末尾加上如下内容：
-```
+```bash
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export JRE_HOME=$JAVA_HOME/jre
 export CLASSPATH=$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH
@@ -29,7 +29,7 @@ source /etc/profile，使环境变量生效
 
 - 下载platform-tools  
 若sdk-tools-linux-4333796.zip解压后只有tools，则需要通过如下命令去下载platform-tools和具体的sdk版本：  
-```
+```bash
  # 列出已安装和可用的软件包
  ./tools/bin/sdkmanager --list
  # 下载具体的软件包
@@ -39,7 +39,7 @@ source /etc/profile，使环境变量生效
 
 - 配置sdk环境变量  
 vim /etc/profile，在文件末尾加上如下内容：
-```
+```text
 export ANDROID_SDK=/home/chenming/android/android-sdk-linux
 exprot PATH=$PATH:$ANDROID_SDK/tools:$ANDROID_SDK/platform-tools
 ```
@@ -53,7 +53,7 @@ source /etc/profile，使环境变量生效
 
 - 配置ndk环境变量  
 vim /etc/profile，在文件末尾加上如下内容：
-```
+```text
    export ANDROID_SDK=/home/chenming/android/android-ndk-r10e
    export PATH=$PATH:$ANDROID_NDK
 ```
@@ -64,7 +64,7 @@ source /etc/profile，使环境变量生效
 
 ## 4. 测试环境
 - java -version  
-```
+```bash
 chenming@DESKTOP-RN9FSGO:~$ java -version
 openjdk version "1.8.0_222"
 OpenJDK Runtime Environment (build 1.8.0_222-8u222-b10-1ubuntu1~18.04.1-b10)
@@ -72,7 +72,7 @@ OpenJDK 64-Bit Server VM (build 25.222-b10, mixed mode)
 chenming@DESKTOP-RN9FSGO:~$
 ```
 - adb --version  
-```
+```bash
 chenming@DESKTOP-RN9FSGO:~$ adb --version
 Android Debug Bridge version 1.0.41
 Version 29.0.5-5949299
@@ -80,7 +80,7 @@ Installed as /home/chenming/android/android-sdk-linux/platform-tools/adb
 chenming@DESKTOP-RN9FSGO:~$ 
 ```
 - ndk-build --version  
-```
+```bash
 chenming@DESKTOP-RN9FSGO:~$ ndk-build --version
 GNU Make 3.81
 Copyright (C) 2006  Free Software Foundation, Inc.
@@ -94,7 +94,7 @@ chenming@DESKTOP-RN9FSGO:~$
 # 二、编译步骤
 ## 1. 下载源码
 - 下载ijkplayer源码  
-```
+```bash
 git clone https://github.com/Bilibili/ijkplayer.git ijkplayer-android  
 cd ijkplayer-android
 ```
@@ -104,20 +104,20 @@ cd ijkplayer-android
 
 ## 2. 编译
 - 编译openssl(如果需要支持https)  
-```
+```bash
 cd android/contrib
 ./compile-openssl.sh clean
 ./compile-openssl.sh all
 ```
 
 - 编译ffmpeg  
-```
+```bash
 cd android/contrib
 ./compile-ffmpeg.sh clean
 ./compile-ffmpeg.sh all
 ```
 `compile-ffmepg.sh`后面的参数代表编译哪个arm建构的版本，默认编译armv7a,编译选项，前面执行的`compile-openssl.sh`和后面执行的`compile-ijk.sh`后面的选项也是同样的道理。
-```
+```text
 armv5 armv7a arm64 x86 x86_64(指定编译哪个版本)
 all32（所有32位处理器版本，包含armv5 armv7a x86）
 all （所有通用版本，包含armv5 armv7a arm64 x86 x86_64）
@@ -126,14 +126,14 @@ check (检测支持的版本)
 ```
 
 - 编译ijkplayer
-```
+```bash
 cd ..
 ./compile-ijk.sh all
 ```
 
 # 三、遇到的问题  
 - 执行./complie-ffmpeg.sh all  
-```
+```bash
 build on Linux x86_64
 ANDROID_NDK=/home/chenming/android/android-ndk-r14b
 IJK_NDK_REL=14.1.3816874
@@ -150,7 +150,7 @@ ERROR: Failed to create toolchain.
 原因：ndk版本不匹配，换成r10e就好了
 
 - 执行./compile-openssl.sh all  
-```
+```bash
 --------------------
 [*] check openssl env
 --------------------
